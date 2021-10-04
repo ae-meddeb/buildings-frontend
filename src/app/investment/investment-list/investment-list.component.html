@@ -1,0 +1,56 @@
+<div class="card">
+    <div class="card-header">
+      Investments 
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="form-group form-inline">
+          <ng-template #rt let-r="result">
+            <ngb-highlight (click)="handleTownFilterSelect(r)" [result]="r"></ngb-highlight>
+          </ng-template>
+          <label for="cityFilter">Filtre par ville:</label>
+          <input id="cityFilter" type="text" class="form-control ml-2" [ngbTypeahead]="filterTowns" [resultTemplate]="rt"/>
+        </div>
+        <div class="form-group form-inline">
+          <label for="progress">Filtre par Etat d'avancement:</label>
+          <select class="form-control ml-2" name="progress" [(ngModel)]="progressFilterTerm">
+            <option value="">&nbsp;</option>
+            <option *ngFor="let progress of progressReportsList" [value]="progress">{{progress}}</option>
+          </select>
+        </div>
+      
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th scope="col">Ville</th>
+            <th scope="col">Lycée</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Etat d'avancement</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let investment of investments$ | async" (click)="showDetails(investment.id)">
+            <td>{{investment.city}}</td>
+            <td>{{investment.school}}</td>
+            <td>{{investment.title}}</td>
+            <td>{{investment.progressState}}</td>
+          </tr>
+          </tbody>
+        </table>
+      
+        <div class="d-flex justify-content-between p-2">
+          <ngb-pagination
+            [collectionSize]="(total$ | async)!" [(page)]="page" [pageSize]="pageSize" [maxSize]="6" [boundaryLinks]="true">
+          </ngb-pagination>
+      
+          <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="pageSize">
+            <option [ngValue]="10">10</option>
+            <option [ngValue]="30">30</option>
+            <option [ngValue]="50">50</option>
+          </select>
+        </div>
+      
+      </form>
+    </div>
+    
+  </div>

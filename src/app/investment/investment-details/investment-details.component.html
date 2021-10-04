@@ -1,0 +1,50 @@
+<div class="card">
+    <div class="card-header">
+        Détails de l'investissement
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li *ngIf="investmentDetails.school" class="list-group-item">
+                <span>Lycée:</span> {{investmentDetails.school}}
+            </li>
+            <li *ngIf="investmentDetails.city" class="list-group-item">
+                <span>Ville:</span> {{investmentDetails.city}}
+            </li>
+            <li *ngIf="investmentDetails.title" class="list-group-item">
+                <span>Titre:</span> {{investmentDetails.title}}</li>
+            <li *ngIf="investmentDetails.progressState" class="list-group-item">
+                <span>Etat d'avancement:</span> {{investmentDetails.progressState}}
+            </li>
+            <li *ngIf="investmentDetails.ppi" class="list-group-item">
+                <span>PPI:</span> {{investmentDetails.ppi}}
+            </li>
+            <li *ngIf="investmentDetails.uai" class="list-group-item">
+                <span>UAI:</span> {{investmentDetails.uai}}
+            </li>
+            <li *ngIf="investmentDetails.company" class="list-group-item">
+                <span>Entreprise:</span> {{investmentDetails.company}}
+            </li>
+            <li *ngIf="investmentDetails.deliveryYear" class="list-group-item">
+                <span>Année de livraison:</span> {{investmentDetails.deliveryYear}}
+            </li>
+            <li *ngIf="investmentDetails.individualizationYear" class="list-group-item">
+                <span>Année d'individualisation:</span> {{investmentDetails.individualizationYear}}
+            </li>
+            <li *ngIf="investmentDetails.representative" class="list-group-item">
+                <span>Mandataire:</span> {{investmentDetails.representative}}
+            </li>
+            <li *ngIf="investmentDetails.marketNotification" class="list-group-item">
+                <span>Notification du marché:</span> {{investmentDetails.marketNotification}}
+            </li>
+            <li *ngIf="investmentDetails.lotsNumber" class="list-group-item">
+                <span>Nombre de lots:</span> {{investmentDetails.lotsNumber}}
+            </li>
+            <li *ngIf="investmentDetails.longitude && investmentDetails.latitude" class="list-group-item">
+                <span>Coordonnés GPS:</span> {{investmentDetails.longitude}}, {{investmentDetails.latitude}}
+            </li>
+        </ul>
+        <button type="button" class="btn btn-secondary mt-4" (click)="goBack()">
+            Retour
+        </button>
+    </div>
+</div>
